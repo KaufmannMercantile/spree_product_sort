@@ -14,8 +14,8 @@ Spree::Product.class_eval do
   after_create :create_product_taxon
 
   def create_product_taxon
-    # new product added, create initial product_taxon assignment so that products on the main page can also be sorted.
-    Spree::ProductTaxon.create(:product_id=>self.id, :taxon_id=>0)
+    # new product added, add to new collection
+    Spree::ProductTaxon.create(:product_id=>self.id, :taxon_id=>7)
   end
 
   def in_taxon?(taxon)
