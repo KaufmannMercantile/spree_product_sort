@@ -14,8 +14,8 @@ Spree::Product.class_eval do
   after_create :create_product_taxon
 
   def create_product_taxon
-    # new product added, add to new collection
-    Spree::ProductTaxon.create(:product_id=>self.id, :taxon_id=>7)
+    # new product added, add to special collection
+    Spree::ProductTaxon.create(:product_id=>self.id, :taxon_id=>10)
   end
 
   def in_taxon?(taxon)
