@@ -2,7 +2,7 @@ Spree::Product.class_eval do
   has_many :product_taxons
   has_many :taxons, :through=>:product_taxons
 
-  default_scope :include=>:product_taxons, :order=>"spree_product_taxons.position"
+  default_scope { order('spree_product_taxons.position').includes(:product_taxons) }
   # scope :ordered, {:include=>:product_taxons, :order=>"spree_product_taxons.position"}
 
   scope :available, lambda { |*args| 
