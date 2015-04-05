@@ -5,11 +5,11 @@ Spree::Product.class_eval do
   default_scope { order('spree_product_taxons.position').includes(:product_taxons) }
   # scope :ordered, {:include=>:product_taxons, :order=>"spree_product_taxons.position"}
 
-  scope :available, lambda { |*args| 
-    where(["spree_products.available_on <= ?", args.first || Time.zone.now]).
-      includes(:product_taxons).
-      order('spree_product_taxons.taxon_id, spree_product_taxons.position') #group positions by taxon so that home page (0) works
-  }
+  # scope :available, lambda { |*args| 
+  #   where(["spree_products.available_on <= ?", args.first || Time.zone.now]).
+  #     includes(:product_taxons).
+  #     order('spree_product_taxons.taxon_id, spree_product_taxons.position') #group positions by taxon so that home page (0) works
+  # }
 
   after_create :create_product_taxon
 
