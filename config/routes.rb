@@ -1,14 +1,17 @@
-Spree::Core::Engine.routes.prepend do
+# moved to app / rails 4 engine routes funkiness
+# https://github.com/rails/rails/issues/11895
+
+# Spree::Core::Engine.routes.prepend do
   
-  namespace :admin do
-		# callback for jQuery sort action
-    match 'taxons/reorder_products/:id' => 'taxons#reorder_products', :via => :put
-    match 'product_taxons/positions' => 'product_taxons#positions', :as => :product_sort
-    resources :product_taxons do
-      collection do
-        get :positions
-      end
-    end
+#   namespace :admin do
+#     # callback for jQuery sort action
+#     match 'taxons/reorder_products/:id' => 'taxons#reorder_products', :via => :put
+#     match 'product_taxons/positions' => 'product_taxons#positions', :as => :product_sort
+#     resources :product_taxons do
+#       collection do
+#         get :positions
+#       end
+#     end
       
-  end
-end
+#   end
+# end
